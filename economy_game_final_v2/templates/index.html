@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>닉네임 입력 - 경제 퀴즈 게임</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet" />
+<style>
+  body {
+    margin: 0; padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+  }
+  .wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem 4rem;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 320px;
+    backdrop-filter: blur(8px);
+  }
+  h1 {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.3);
+    color: #1e1e1e;
+    font-weight: 600;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.15);
+  }
+  input[type="text"]::placeholder {
+    color: #555;
+  }
+  input[type="text"]:focus {
+    background: white;
+    box-shadow: 0 0 8px #764ba2;
+  }
+  button {
+    margin-top: 1.8rem;
+    padding: 0.8rem 0;
+    width: 100%;
+    border-radius: 50px;
+    border: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(255,126,95,0.6);
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f);
+  }
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>CEO로 가는길!</h1>
+    <form method="POST" action="/">
+      <input type="text" name="nickname" placeholder="닉네임 입력" required autofocus />
+      <button type="submit">게임 시작</button>
+    </form>
+  </div>
+</body>
+</html>
