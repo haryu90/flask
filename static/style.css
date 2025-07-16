@@ -1,0 +1,128 @@
+/* 전체 배경과 폰트 */
+body {
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0; padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* 컨테이너 */
+.container {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    width: 90%;
+    max-width: 600px;
+}
+
+/* 제목 */
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* 문제 텍스트 */
+#question-box h3 {
+    font-size: 1.3rem;
+}
+
+/* 버튼 스타일 */
+.answer-buttons button {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    margin: 8px 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    min-width: 120px;
+}
+
+.answer-buttons button:hover {
+    background: #45a049;
+}
+
+/* 텍스트 입력 & 제출 버튼 */
+.answer-buttons input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ddd;
+    width: 70%;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.answer-buttons button[type="submit"] {
+    width: auto;
+}
+
+/* 타이머 */
+#timer {
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #e63946;
+}
+
+/* 주식 퍼센트 바 */
+#stock-bar {
+    background-color: #4CAF50;
+    color: black;  /* 검정색으로 변경 */
+    font-weight: bold;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+
+
+
+/* 힌트 박스 */
+#hint-box {
+    background: #fff3cd;
+    color: #856404;
+    border: 1.5px solid #ffeeba;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin: 12px 0 20px 0;
+    font-size: 0.95rem;
+}
+
+/* 정답/오답 메시지 등은 나중에 추가 가능 */
+
+/* 게임 컨테이너 */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 모바일 대응 */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .answer-buttons button {
+        min-width: 100%;
+        margin: 6px 0;
+    }
+
+    .answer-buttons input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
