@@ -77,5 +77,14 @@
       <button type="submit">게임 시작</button>
     </form>
   </div>
+  <script>
+  document.querySelector('input[name="nickname"]').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // 버튼 대신 바로 submit
+      this.form.submit();
+    }
+  });
+</script>
+
 </body>
 </html>
