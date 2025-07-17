@@ -70,9 +70,18 @@ function showQuestion() {
         input.type = 'text';
         input.placeholder = '답을 입력하세요';
         input.id = 'answer-input';
+
+        // ✅ 엔터키 입력 시 제출되도록 처리
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                submitAnswer(input.value.trim());
+            }
+        });
+
         const btn = document.createElement('button');
         btn.textContent = '제출';
-        btn.onclick = () => submitAnswer(document.getElementById('answer-input').value.trim());
+        btn.onclick = () => submitAnswer(input.value.trim());
         answers.appendChild(input);
         answers.appendChild(btn);
     }
@@ -96,8 +105,7 @@ function submitAnswer(answer) {
     clearInterval(timerId);
     const q = questions[currentIndex];
     const basePercent = q.difficulty === 'easy' ? 5 : q.difficulty === 'medium' ? 10 : 15;
-    // 시간이 많이 남을수록 퍼센트 커지고, 10초 남으면 약 2% 정도
-    let gainedPercent = Math.max(1, Math.floor((timeLeft / 30) * basePercent));
+    const gainedPercent = Math.max(1, Math.floor((timeLeft / 30) * basePercent));
 
     let isCorrect = false;
     if (answer !== null) {
@@ -151,41 +159,6 @@ window.onload = () => {
             showQuestion();
         });
 };
-
-if (q.type === 'multiple') {
-    q.choices.forEach(choice => {
-        const btn = document.createElement('button');
-        btn.textContent = choice;
-        btn.onclick = () => submitAnswer(choice);
-        answers.appendChild(btn);
-    });
-} else {
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.placeholder = '답을 입력하세요';
-    input.id = 'answer-input';
-
-    // 엔터키 제출 이벤트 추가
-    input.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-            submitAnswer(input.value.trim());
-        }
-    });
-
-    const btn = document.createElement('button');
-    btn.textContent = '제출';
-    btn.onclick = () => submitAnswer(input.value.trim());
-    answers.appendChild(input);
-    answers.appendChild(btn);
-}
-
-    <script>
-  document.getElementById("answerInput").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-      event.preventDefault(); // 기본 엔터 동작 막고
-      document.getElementById("answerForm").requestSubmit(); // 버튼 안 누르고도 제출
-    }
-  });
 </script>
 
 </body>
